@@ -344,18 +344,7 @@ mobile/
    - Teste criar, editar e excluir usuários
    - Faça logout e teste o registro de novo usuário
 
-## ⚠️ Fora de Escopo
 
-Este projeto NÃO inclui:
-
-- Docker ou containerização
-- Scripts de deploy ou CI/CD
-- Testes automatizados (unitários ou integração)
-- Configuração de banco de dados remoto
-- Integração com serviços de terceiros
-- Recursos além dos especificados (ex: upload de imagens, notificações push, etc.)
-- Comentários excessivos no código
-- Documentação além deste README e do Swagger
 
 ## 📝 Notas de Desenvolvimento
 
@@ -376,20 +365,5 @@ Este projeto NÃO inclui:
 - TypeScript para type safety
 - Secure Store para armazenamento seguro de tokens
 
-## 🤝 Contribuindo
-
-Este é um projeto de demonstração. Para contribuir:
-
-1. Faça fork do projeto
-2. Crie uma branch para sua feature
-3. Commit suas mudanças
-4. Push para a branch
-5. Abra um Pull Request
-
-## 📄 Licença
-
-Este projeto é open source e está disponível sob a licença MIT.
-
----
 
 Desenvolvido com ❤️ usando Laravel, React Native e TypeScript.
