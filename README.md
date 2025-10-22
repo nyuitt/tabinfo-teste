@@ -128,13 +128,13 @@ php artisan migrate --seed
 Isso criará as tabelas necessárias e populará o banco com usuários de teste:
 
 **Administrador:**
-- E-mail: `admin@exemplo.com`
+- E-mail: `admin@tabinfo.com`
 - Senha: `password`
 
 **Usuários comuns:**
-- `joao@exemplo.com` / `password`
-- `maria@exemplo.com` / `password`
-- `pedro@exemplo.com` / `password`
+- `joao@tabinfo.com` / `password`
+- `maria@tabinfo.com` / `password`
+- `pedro@tabinfo.com` / `password`
 
 ### 6. Gerar documentação Swagger
 

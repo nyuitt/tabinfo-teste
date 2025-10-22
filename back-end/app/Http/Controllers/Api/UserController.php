@@ -20,7 +20,7 @@ class UserController extends Controller
 {
     public function __construct()
     {
-        $this->authorizeResource(User::class, 'user');
+        // Constructor vazio - autorização será feita nos métodos
     }
 
     /**
@@ -43,6 +43,11 @@ class UserController extends Controller
      */
     public function index(): JsonResponse
     {
+        // Verificar se o usuário é admin
+        if (!auth()->user()->is_admin) {
+            abort(403, 'Acesso negado. Apenas administradores podem gerenciar usuários.');
+        }
+
         $users = User::all();
         return response()->json(UserResource::collection($users));
     }
@@ -75,6 +80,11 @@ class UserController extends Controller
      */
     public function store(StoreUserRequest $request): JsonResponse
     {
+        // Verificar se o usuário é admin
+        if (!auth()->user()->is_admin) {
+            abort(403, 'Acesso negado. Apenas administradores podem gerenciar usuários.');
+        }
+
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -110,6 +120,11 @@ class UserController extends Controller
      */
     public function show(User $user): JsonResponse
     {
+        // Verificar se o usuário é admin
+        if (!auth()->user()->is_admin) {
+            abort(403, 'Acesso negado. Apenas administradores podem gerenciar usuários.');
+        }
+
         return response()->json(new UserResource($user));
     }
 
@@ -148,6 +163,11 @@ class UserController extends Controller
      */
     public function update(UpdateUserRequest $request, User $user): JsonResponse
     {
+        // Verificar se o usuário é admin
+        if (!auth()->user()->is_admin) {
+            abort(403, 'Acesso negado. Apenas administradores podem gerenciar usuários.');
+        }
+
         $data = $request->only(['name', 'email', 'is_admin']);
 
         if ($request->filled('password')) {
@@ -180,6 +200,11 @@ class UserController extends Controller
      */
     public function destroy(User $user): JsonResponse
     {
+        // Verificar se o usuário é admin
+        if (!auth()->user()->is_admin) {
+            abort(403, 'Acesso negado. Apenas administradores podem gerenciar usuários.');
+        }
+
         $user->delete();
         return response()->json(null, 204);
     }
