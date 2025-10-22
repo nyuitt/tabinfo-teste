@@ -19,33 +19,3 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
-
-
-
-// Rota para servir o arquivo JSON do Swagger (aceita query parameter)
-Route::get('/docs', function () {
-    $filePath = storage_path('api-docs/api-docs.json');
-
-    if (!file_exists($filePath)) {
-        abort(404, 'API documentation not found');
-    }
-
-    return response()->file($filePath, [
-        'Content-Type' => 'application/json',
-        'Access-Control-Allow-Origin' => '*',
-    ]);
-});
-
-// Rota alternativa para path parameter
-Route::get('/docs/api-docs.json', function () {
-    $filePath = storage_path('api-docs/api-docs.json');
-
-    if (!file_exists($filePath)) {
-        abort(404, 'API documentation not found');
-    }
-
-    return response()->file($filePath, [
-        'Content-Type' => 'application/json',
-        'Access-Control-Allow-Origin' => '*',
-    ]);
-});
